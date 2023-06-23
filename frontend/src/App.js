@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { DropzoneArea } from "material-ui-dropzone";
-import { Backdrop, Chip, CircularProgress, Grid, Stack } from "@mui/material";
+import { Backdrop, Chip, CircularProgress, Grid } from "@mui/material";
 
 function App() {
   const [predictedClass, setPredictedClass] = useState(null);
@@ -51,7 +51,7 @@ function App() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        marginTop="12%"
+        marginTop="8%"
       >
         <Grid item>
           <h1 style={{ textAlign: "center", marginBottom: "1.5em" }}>
@@ -65,18 +65,20 @@ function App() {
             filesLimit={1}
             showAlerts={["error"]}
           />
-          <Stack
-            style={{ marginTop: "2em", width: "12rem" }}
-            direction="row"
-            spacing={1}
-          >
+
+          <div style={{ marginTop: "20px" }}>
             <Chip
               label={
                 predictedClass === null
                   ? "Prediction:"
                   : `Prediction: ${predictedClass}`
               }
-              style={{ justifyContent: "left" }}
+              style={{
+                justifyContent: "left",
+                width: "100%",
+                fontSize: "15px",
+                fontWeight: "bold",
+              }}
               variant="outlined"
             />
             <Chip
@@ -85,10 +87,15 @@ function App() {
                   ? "Confidence:"
                   : `Confidence: ${confidence}%`
               }
-              style={{ justifyContent: "left" }}
+              style={{
+                justifyContent: "left",
+                marginTop: "20px",
+                fontSize: "15px",
+                fontWeight: "bold",
+              }}
               variant="outlined"
             />
-          </Stack>
+          </div>
         </Grid>
       </Grid>
 
